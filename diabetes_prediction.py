@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import joblib
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -69,10 +68,6 @@ st.pyplot(fig)
 # Display classification report for the best model
 st.subheader("Classification Report")
 st.text(classification_report(y_test, y_pred_best, target_names=["No Diabetes", "Diabetes"]))
-
-# Save the best model to a file
-model_filename = "best_model_rf.joblib"
-joblib.dump(best_model, model_filename)
 
 # Input options for prediction
 st.sidebar.title("Prediction Options")
